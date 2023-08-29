@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+#root {
+  height: 100vh;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  display: flex;
+}
+
+.contribution-graph {
+  display: grid;
+  grid-template-rows: repeat(7, 20px);
+  gap: 2px;
+}
+
+.row {
+  display: flex;
+  gap: 2px;
+}
+
+.day-of-week {
+  width: 40px;
+  text-align: right;
+  padding-right: 5px;
+  color: #959494;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  position: relative;
+  cursor: pointer;
+}
+
+.cell:hover {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.months-row {
+  text-align: center;
+  justify-content: space-between;
+  padding: 0 40px 0 65px;
+  width: 100%;
+  font-size: 12px;
+  color: #888;
+}
+
+.month {
+  color: #959494;
+  font-family: "Inter";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.tooltip {
+  text-align: center;
+  position: absolute;
+  border-radius: 3px;
+  background: #000;
   color: white;
+  padding: 10px;
+  font-size: 12px;
+  z-index: 1000;
+  pointer-events: none;
+  transform: translate(-50%, -100%);
+  white-space: nowrap;
 }
 
-.App-link {
-  color: #61dafb;
+.tooltip::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  border: 10px solid transparent;
+  border-top: 10px solid rgba(0, 0, 0, 0.8);
+  transform: translate(-50%, 0px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tooltip h3 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.tooltip p {
+  color: #7c7c7c;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
